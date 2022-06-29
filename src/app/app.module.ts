@@ -6,6 +6,14 @@ import { MegaMenuModule } from 'primeng/megamenu';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PokemonService } from './PokemonService';
+
+import {TableModule} from 'primeng/table';
+import {ButtonModule} from 'primeng/button';
+import {FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -13,11 +21,17 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    ButtonModule,
+    MenubarModule,
+    InputTextModule,
+    AppRoutingModule,
+    TableModule,
+    HttpClientModule,
+    FormsModule,
     MegaMenuModule
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

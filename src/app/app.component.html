@@ -1,3 +1,33 @@
 
-<h5>Vertical</h5>
-<p-megaMenu [model]="items" orientation="vertical"></p-megaMenu>
+<p-menubar [model]="items">
+  <div>
+      <input type="text" pInputText placeholder="Search">
+      <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>
+  </div>
+</p-menubar>
+<!-- <p-megaMenu [model]="items" orientation="vertical"></p-megaMenu> -->
+<div class="card">
+  <h5>Pokemon Pages</h5>
+  <p-table [value]="pokemon" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Name</th>
+              <th>Url</th>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pokemon>
+          <tr>
+              <td>{{pokemon.name}}</td>
+              <td> {{pokemon.url}}</td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+          <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+          <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+      </ng-template>
+  </p-table>
+</div>
